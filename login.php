@@ -43,7 +43,7 @@ if (isset($_POST['btnLogin'])) {
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-auth">
 	<div class="form-login-registrasi">
 		<img src="img/logo.jpg" alt="logo" class="logo">
 		<br>

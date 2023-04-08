@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Apr 2023 pada 10.38
+-- Waktu pembuatan: 08 Apr 2023 pada 10.27
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -40,7 +40,10 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`id_kegiatan`, `id_user`, `isi_kegiatan`, `tenggat_waktu`, `status`) VALUES
-(4, 1, 'ngoding', '2023-04-20 13:54:00', 'selesai');
+(6, 3, 'maen', '2023-03-30 13:37:00', 'belum'),
+(13, 1, 'Baca Buku', '2023-04-08 11:00:00', 'selesai'),
+(14, 2, 'Ngoding', '2023-04-08 16:00:00', 'belum'),
+(15, 1, 'Ngerjain kp bab 3', '2023-04-08 20:00:00', 'belum');
 
 -- --------------------------------------------------------
 
@@ -60,8 +63,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama_lengkap`) VALUES
-(1, 'aldo', '$2y$10$dymig8uFtiZGhm/GaP81rOM0jWgvj8MyF8pzt2tDBxxa3VHT/Az3y', 'aldo'),
-(2, 'andri', '$2y$10$0/SAGhVUBuuIDzIyyp6I8evOhx3vbqemlomZzzdTytSApDcbDTGI6', 'Andri Firman Saputra');
+(1, 'aldo', '$2y$10$ASJqXft2hErOAtyzuePZv.UeHoKjARIfJ8iiWDP/ntCrikYJfvu8W', 'Aldo Hermawan Suryana'),
+(2, 'andri', '$2y$10$0/SAGhVUBuuIDzIyyp6I8evOhx3vbqemlomZzzdTytSApDcbDTGI6', 'Andri Firman Saputra'),
+(3, 'roni', '$2y$10$SyCGW1ROWIQK/iznfx46N.sYdmjTw4f2I44hYUtyCQm8aUZEVEZBW', 'roni sefia');
 
 --
 -- Indexes for dumped tables
@@ -88,13 +92,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kegiatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

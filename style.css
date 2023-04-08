@@ -1,6 +1,11 @@
 body {
-	background-color: #94AF9F;
 	font-family: 'Poppins', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+.bg-auth {
+  background-color: #071e3d;
 }
 
 .form-login-registrasi {
@@ -34,6 +39,7 @@ body {
 	border-radius: 5px;
 	padding: 10px;
 	color: white;
+  text-decoration: none;
 }
 
 .text-right {
@@ -57,3 +63,159 @@ body {
 	display: block;
 	margin: auto;
 }
+
+nav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111;
+}
+
+nav li.right {
+  float: right;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-input {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 350px;
+  background-color: #ac3f21;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.card-content {
+  padding: 0 20px;
+  font-size: 16px;
+  text-align: justify;
+  color: white;
+}
+
+.card-deadline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ff8c00;
+  color: #fff;
+}
+
+.card-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.card-actions {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  padding: 10px;
+}
+
+.card-actions a {
+  margin: 0 10px;
+  padding: 5px 10px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bg-red-card {
+  background-color: red;
+}
+
+.bg-red {
+	background-color: #d72323;
+}
+
+.bg-grey {
+	background-color: #5d5d5a;
+}
+
+.bg-yellow {
+	background-color: #f5da2a;
+}
+
+.bg-blue {
+  background-color: #482ff7;
+}
+
+.horizontal-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.horizontal-list li {
+  margin-right: 10px;
+}
+
+.horizontal-list li:last-child {
+  margin-right: 0;
+}
+

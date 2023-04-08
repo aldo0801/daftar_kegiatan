@@ -8,25 +8,40 @@ if (!isset($_SESSION['id_user'])) {
 $id_user = $_SESSION['id_user'];
 $data_user = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM user WHERE id_user = '$id_user'"));
 
-if (isset($_POST['btnTambah'])) {
-	$isi_kegiatan = nl2br($_POST['isi_kegiatan']);
-	$tenggat_waktu = $_POST['tenggat_waktu'];
+if (isset($_POST['btnUbah'])) {
+	$username = nl2br($_POST['username']);
+	$nama_lengkap = $_POST['nama_lengkap'];
 
-	$tambah_kegiatan = mysqli_query($koneksi, "INSERT INTO kegiatan VALUES ('', '$id_user', '$isi_kegiatan', '$tenggat_waktu', 'belum')");
+	// check username 
+	$old_username = $data_user['username'];
+	if ($username != $old_username) {
+		$check_username = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
+		if (mysqli_num_rows($check_username)) {
+			echo "
+				<script>
+					alert('Username telah digunakan!')
+					window.history.back();
+				</script>
+			";
+			exit;
+		}
+	}
 
-	if ($tambah_kegiatan) {
+
+	$ubah_profile = mysqli_query($koneksi, "UPDATE user SET username = '$username', nama_lengkap = '$nama_lengkap' WHERE id_user='$id_user'");
+	if ($ubah_profile) {
 		echo "
 			<script>
-				alert('kegiatan berhasil ditambahkan!')
-				window.location.href='index.php'
+				alert('Profile berhasil diubah!')
+				window.location.href='profile.php'
 			</script>
 		";
 		exit;
 	} else {
 		echo "
 			<script>
-				alert('kegiatan gagal ditambahkan!')
-				window.location.href='index.php'
+				alert('Profile gagal diubah!')
+				window.location.href='profile.php'
 			</script>
 		";
 		exit;
@@ -39,7 +54,7 @@ if (isset($_POST['btnTambah'])) {
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TAMBAH KEGIATAN</title>
+	<title>UBAH PROFILE</title>
 	<link rel="icon" href="img/logo.jpg">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,18 +72,18 @@ if (isset($_POST['btnTambah'])) {
 	</nav>
 	<div class="container">
 		<button type="button" onclick="return window.history.back()" class="button">Kembali</button>
-		<h1>Tambah Kegiatan</h1>
+		<h1>Ubah Profile</h1>
 		<form method="post">
 			<div class="form-group">
-				<label for="isi_kegiatan" class="form-label">Isi Kegiatan</label>
-				<textarea name="isi_kegiatan" id="isi_kegiatan" class="form-input" required></textarea>
+				<label for="username" class="form-label">Isi Kegiatan</label>
+				<input type="text" name="username" id="username" class="form-input" required value="<?= $data_user['username']; ?>">
 			</div>
 			<div class="form-group">
-				<label for="tenggat_waktu" class="form-label">Tenggat Waktu</label>
-				<input type="datetime-local" name="tenggat_waktu" id="tenggat_waktu" class="form-input" required value="<?= date('Y-m-d H:i'); ?>">
+				<label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+				<input type="text" name="nama_lengkap" id="nama_lengkap" class="form-input" required value="<?= $data_user['nama_lengkap']; ?>">
 			</div>
 			<div class="form-group">
-				<button type="submit" name="btnTambah" class="button">Tambah</button>
+				<button type="submit" name="btnUbah" class="button">Ubah</button>
 			</div>
 		</form>
 	</div>
